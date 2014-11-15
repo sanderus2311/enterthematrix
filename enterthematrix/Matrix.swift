@@ -12,7 +12,7 @@ class Matrix: NSObject {
     
     let firstMatix : [Double] = []
     let secondMatrix : [Double] = []
-    let height : Int = 2
+    let height : Int = 3
     let width : Int = 3
     
     init(tempFirstMatrix : [Double], tempSecondMatrix : [Double]){
@@ -40,7 +40,27 @@ class Matrix: NSObject {
         return result
     }
 
-    
+    func multiplyMatix() -> [Double] {
+        var result : [Double] = []
+        var temp : Double = 0.0
+        
+        for index in 0..<self.width * self.height{
+
+            temp = 0.0
+            
+            for i in 0..<self.width {
+                for x in 0..<self.height{
+                    for y in 0..<self.height{
+                        temp += self.firstMatix[x + y*self.width] * self.secondMatrix[y + x*self.height]
+                    }
+                }
+            }
+            
+            result.append(temp)
+        }
+        
+        return result
+    }
 }
 
 /*

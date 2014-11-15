@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var plusBtn: UIButton!
     @IBOutlet weak var minusBtn: UIButton!
     @IBOutlet weak var multiplyBtn: UIButton!
-
+    
     var firstMatrixArray : [Double] = []
     var secondMatrixArray : [Double] = []
     var resultArray : [Double] = []
@@ -29,11 +29,25 @@ class ViewController: UIViewController {
         self.plusBtn.addTarget(self, action:"handleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         self.minusBtn.addTarget(self, action:"handleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         self.multiplyBtn.addTarget(self, action:"handleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        startAnimation()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
+    }
+    
+    func startAnimation() {
+        
+        
+        UIView.animateWithDuration(0.2, animations: {
+            
+        }, completion: {
+        
+            
+            
+        })
     }
     
     func handleButtonAction(sender:UIButton!) {
@@ -83,7 +97,10 @@ class ViewController: UIViewController {
     }
     
     func multiply(){
+        matrixModel = Matrix(tempFirstMatrix: firstMatrixArray, tempSecondMatrix: secondMatrixArray)
+        var result = matrixModel?.multiplyMatix()
         
+        println("Multiply our matrixies is equal to: \(result)")
     }
 }
 
