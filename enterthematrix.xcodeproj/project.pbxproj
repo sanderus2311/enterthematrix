@@ -13,7 +13,7 @@
 		4B592D1E1A17802C0008F1A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B592D1D1A17802C0008F1A9 /* Images.xcassets */; };
 		4B592D211A17802C0008F1A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B592D1F1A17802C0008F1A9 /* LaunchScreen.xib */; };
 		4B592D2D1A17802C0008F1A9 /* enterthematrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B592D2C1A17802C0008F1A9 /* enterthematrixTests.swift */; };
-		4B592D371A1782910008F1A9 /* thematrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B592D361A1782910008F1A9 /* thematrix.swift */; };
+		4B592D371A1782910008F1A9 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B592D361A1782910008F1A9 /* Matrix.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		4B592D261A17802C0008F1A9 /* enterthematrixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = enterthematrixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B592D2B1A17802C0008F1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B592D2C1A17802C0008F1A9 /* enterthematrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterthematrixTests.swift; sourceTree = "<group>"; };
-		4B592D361A1782910008F1A9 /* thematrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thematrix.swift; sourceTree = "<group>"; };
+		4B592D361A1782910008F1A9 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				4B592D161A17802C0008F1A9 /* AppDelegate.swift */,
-				4B592D3A1A1782AC0008F1A9 /* Models */,
 				4B592D391A1782A40008F1A9 /* Controllers */,
+				4B592D3A1A1782AC0008F1A9 /* Models */,
 				4B592D381A17829D0008F1A9 /* Views */,
 				4B592D1D1A17802C0008F1A9 /* Images.xcassets */,
 				4B592D141A17802C0008F1A9 /* Supporting Files */,
@@ -134,7 +134,7 @@
 		4B592D3A1A1782AC0008F1A9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4B592D361A1782910008F1A9 /* thematrix.swift */,
+				4B592D361A1782910008F1A9 /* Matrix.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 			files = (
 				4B592D191A17802C0008F1A9 /* ViewController.swift in Sources */,
 				4B592D171A17802C0008F1A9 /* AppDelegate.swift in Sources */,
-				4B592D371A1782910008F1A9 /* thematrix.swift in Sources */,
+				4B592D371A1782910008F1A9 /* Matrix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

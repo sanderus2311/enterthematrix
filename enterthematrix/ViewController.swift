@@ -20,20 +20,39 @@ class ViewController: UIViewController {
 
     var firstMatrixArray : [Double] = []
     var secondMatrixArray : [Double] = []
+    var resultArray : [Double] = []
+    var matrixModel : Matrix?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.plusBtn.addTarget(self, action:"parseMatrix", forControlEvents: UIControlEvents.TouchUpInside)
+        self.plusBtn.addTarget(self, action:"handleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.minusBtn.addTarget(self, action:"handleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.multiplyBtn.addTarget(self, action:"handleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
     }
-
-    func parseMatrix() {
+    
+    func handleButtonAction(sender:UIButton!) {
+        parseMatrix()
+        
+        if sender == self.plusBtn {
+            sum()
+        }else if sender == self.minusBtn{
+            subtract()
+        }else if sender == self.multiplyBtn{
+            multiply()
+        }
+    }
+    
+    func parseMatrix(){
         var index  = 0;
+        self.firstMatrixArray = []
+        self.secondMatrixArray = []
+        
         for textView in self.firstMatrix as [UITextView] {
             var tempString = (textView.text as NSString).doubleValue
             self.firstMatrixArray.append(tempString)
@@ -48,6 +67,23 @@ class ViewController: UIViewController {
         
         println("Our first matrix is: \(self.firstMatrixArray) \nOur second matrix is: \(self.secondMatrixArray)")
     }
+
+    func sum() {
+        matrixModel = Matrix(tempFirstMatrix: firstMatrixArray, tempSecondMatrix: secondMatrixArray)
+        var result = matrixModel?.sumMatrix()
+        
+        println("Sum of our matrixies is equal to: \(result)")
+    }
+
+    func subtract() {
+        matrixModel = Matrix(tempFirstMatrix: firstMatrixArray, tempSecondMatrix: secondMatrixArray)
+        var result = matrixModel?.subtractMatix()
+        
+        println("Subtract of our matrixies is equal to: \(result)")
+    }
     
+    func multiply(){
+        
+    }
 }
 
