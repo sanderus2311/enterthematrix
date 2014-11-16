@@ -24,7 +24,6 @@ class ViewController: UIViewController {
         self.plusBtn.addTarget(self, action:"handleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         self.minusBtn.addTarget(self, action:"handleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
 
-        // TODO: Delete after tests
         for textView in self.view.subviews as [UIView]{
             textView.alpha = 0.0;
         }
@@ -56,39 +55,39 @@ class ViewController: UIViewController {
             if(n>0){
                 self.startMatrixAnimation(n-1, matrixView: matrixView)
             }else{
-                self.startButtonsAnimation(self.plusBtn)
-                self.startButtonsAnimation(self.minusBtn)
+                self.startBounceAniamation(self.plusBtn)
+                self.startBounceAniamation(self.minusBtn)
             }
             
         })
     }
     
-    func startButtonsAnimation(button : UIButton){
+    func startBounceAniamation(view : UIView){
         
-        button.transform = CGAffineTransformMakeScale(0.4, 0.4)
+        view.transform = CGAffineTransformMakeScale(0.4, 0.4)
         
         UIView.animateWithDuration(0.2, animations: {
             
-            button.alpha = 1.0
-            button.transform = CGAffineTransformMakeScale(1.4, 1.4)
+            view.alpha = 1.0
+            view.transform = CGAffineTransformMakeScale(1.4, 1.4)
             
             }, completion: { finished in
                 
                 UIView.animateWithDuration(0.2, animations: {
                     
-                    button.transform = CGAffineTransformMakeScale(0.6, 0.6)
+                    view.transform = CGAffineTransformMakeScale(0.6, 0.6)
                     
                     }, completion: { finished in
                         
                         UIView.animateWithDuration(0.3, animations: {
                             
-                            button.transform = CGAffineTransformMakeScale(1.2, 1.2)
+                            view.transform = CGAffineTransformMakeScale(1.2, 1.2)
                             
                             }, completion: { finished in
                                 
                                 UIView.animateWithDuration(0.3, animations: {
                                     
-                                    button.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                                    view.transform = CGAffineTransformMakeScale(1.0, 1.0)
                                     
                                     }, completion: { finished in
                                     
@@ -125,7 +124,7 @@ class ViewController: UIViewController {
     }
 
     func sum() {
-        let firstMatrix = Matrix(cols: x, rows: y, values: parseMatrix(self.secondMatrix))
+        let firstMatrix = Matrix(cols: x, rows: y, values: parseMatrix(self.firstMatrix))
         let secondMatrix = Matrix(cols: x, rows: y, values: parseMatrix(self.secondMatrix))
         let result : Matrix = firstMatrix.add(secondMatrix)
         
@@ -133,7 +132,7 @@ class ViewController: UIViewController {
     }
 
     func subtract() {
-        let firstMatrix = Matrix(cols: x, rows: y, values: parseMatrix(self.secondMatrix))
+        let firstMatrix = Matrix(cols: x, rows: y, values: parseMatrix(self.firstMatrix))
         let secondMatrix = Matrix(cols: x, rows: y, values: parseMatrix(self.secondMatrix))
         let result : Matrix = firstMatrix.subtract(secondMatrix)
         
@@ -141,16 +140,21 @@ class ViewController: UIViewController {
     }
     
     func showResult(result:Matrix){
-        let resultVC : ResultController = ResultController()
+        let storyboard = UIStoryboard(name:"Main", bundle: nil);
+        let resultVC = storyboard.instantiateViewControllerWithIdentifier("resultView") as ResultController;
+
         resultVC.matrix = result
-        resultVC.showResult()
+        
+        addChildViewController(resultVC)
+        resultVC.view.frame = CGRectMake(0,0,600,600)
+        resultVC.view.center = self.view.center
+        resultVC.view.alpha = 0.0
+        
+        self.view.addSubview(resultVC.view)
+        resultVC.view.layer.cornerRadius = 0.5
+        
+        startBounceAniamation(resultVC.view)
     }
+
 }
-
-/*
-let firstMatrix = Matrix(cols: 1,rows: 3,values: [0.5, 5, 5]);
-let secondMatrix = Matrix(cols:1, rows: 3, values: [1,2,3.0]);
-let result = firstMatrix.add(secondMatrix);
-*/
-
 

@@ -9,15 +9,16 @@
 import UIKit
 
 class ResultController: UIViewController {
-
-    @IBOutlet weak var resultMatrix: UITextView!
     
-    let matrix : Matrix
+    @IBOutlet var resultMatrix: [UITextView]!
 
+    
+    var matrix : Matrix!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        showResult()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,7 +26,18 @@ class ResultController: UIViewController {
     }
     
     func showResult(){
-        println(self.matrix.values)
+    
+        for var index = 0; index < self.resultMatrix.count; ++index {
+            
+            var tempString : String = String(format:"%.f", matrix.values[index])
+            self.resultMatrix[index].text = tempString
+        
+        }
+    
     }
-
+    
+    @IBAction func dimissView(sender: AnyObject) {
+        self.view.removeFromSuperview()
+        self.removeFromParentViewController()
+    }
 }
