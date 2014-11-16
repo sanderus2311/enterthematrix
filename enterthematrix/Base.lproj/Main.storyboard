@@ -16,36 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D73-lZ-bre">
-                                <rect key="frame" x="472" y="218" width="50" height="98"/>
-                                <state key="normal" title="+">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zk4-QO-59P">
-                                <rect key="frame" x="472" y="313" width="46" height="30"/>
+                                <rect key="frame" x="431" y="354" width="165" height="188"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <state key="normal" title="-">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWf-og-jyD">
-                                <rect key="frame" x="472" y="404" width="46" height="30"/>
-                                <state key="normal" title="*">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Matrix 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jam-V1-4zZ">
-                                <rect key="frame" x="482" y="-52" width="63" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Matrix 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1q0-KW-Hh5">
-                                <rect key="frame" x="733" y="137" width="63" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="4" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mYV-Ak-jGi">
                                 <rect key="frame" x="910" y="334" width="100" height="100"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -136,16 +114,22 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D73-lZ-bre">
+                                <rect key="frame" x="419" y="173" width="188" height="173"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.58431375026702881" green="0.79607850313186646" blue="0.364705890417099" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="minusBtn" destination="Zk4-QO-59P" id="3YP-4Y-ILP"/>
-                        <outlet property="multiplyBtn" destination="fWf-og-jyD" id="JJv-0e-Vrx"/>
                         <outlet property="plusBtn" destination="D73-lZ-bre" id="1Mw-9g-6k5"/>
-                        <outletCollection property="matrixHeaders" destination="1q0-KW-Hh5" collectionClass="NSMutableArray" id="HtZ-XW-W21"/>
                         <outletCollection property="secondMatrix" destination="mYV-Ak-jGi" collectionClass="NSMutableArray" id="HBR-Uh-aeh"/>
                         <outletCollection property="secondMatrix" destination="JM9-9e-Ry8" collectionClass="NSMutableArray" id="1dH-d8-QEo"/>
                         <outletCollection property="secondMatrix" destination="uGu-g9-gVC" collectionClass="NSMutableArray" id="aWN-As-Lho"/>
@@ -158,7 +142,6 @@
                         <outletCollection property="firstMatrix" destination="KTn-tN-sl8" collectionClass="NSMutableArray" id="u8w-Q3-HvB"/>
                         <outletCollection property="firstMatrix" destination="FJS-yg-LRE" collectionClass="NSMutableArray" id="NSk-uI-bwi"/>
                         <outletCollection property="firstMatrix" destination="h9d-w1-UQx" collectionClass="NSMutableArray" id="Q53-g8-qXF"/>
-                        <outletCollection property="matrixHeaders" destination="Jam-V1-4zZ" collectionClass="NSMutableArray" id="fI7-2t-yef"/>
                         <outletCollection property="firstMatrix" destination="SFm-6A-jBb" collectionClass="NSMutableArray" id="FtU-fM-NYe"/>
                         <outletCollection property="firstMatrix" destination="tUi-3R-Yop" collectionClass="NSMutableArray" id="q6H-3L-57E"/>
                         <outletCollection property="firstMatrix" destination="mC2-Xk-H71" collectionClass="NSMutableArray" id="roZ-10-cks"/>
@@ -170,6 +153,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="412" y="-34"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Kzz-Oi-QDM">
+            <objects>
+                <viewController id="Ndu-UQ-T85" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QW0-Or-qZ7"/>
+                        <viewControllerLayoutGuide type="bottom" id="MYB-nt-vUV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="resultView" id="ca1-se-RS0" customClass="ResultController">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="4" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qku-ZH-6jM">
+                                <rect key="frame" x="400" y="250" width="100" height="100"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="4" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="504-bi-bmj">
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="23" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kSq-Hh-gDy">
+                                <rect key="frame" x="100" y="250" width="100" height="100"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="3" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DFE-e3-NCm">
+                                <rect key="frame" x="400" y="142" width="100" height="100"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="3" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YNU-bs-wmg">
+                                <rect key="frame" x="100" y="142" width="100" height="100"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="3" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0vy-Wa-FBu">
+                                <rect key="frame" x="250" y="142" width="100" height="100"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="5" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RSK-gP-6bs">
+                                <rect key="frame" x="400" y="358" width="100" height="100"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="5" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bf8-fX-PgP">
+                                <rect key="frame" x="100" y="358" width="100" height="100"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="6" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="a72-IC-S3D">
+                                <rect key="frame" x="250" y="358" width="100" height="100"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="resultMatrix" destination="RSK-gP-6bs" id="fu2-Tn-mEE"/>
+                        </connections>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g3c-Uh-vKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1281" y="5"/>
         </scene>
     </scenes>
 </document>

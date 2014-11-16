@@ -10,25 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var matrixHeaders: [UILabel]!
     @IBOutlet var firstMatrix: [UITextView]!
     @IBOutlet var secondMatrix: [UITextView]!
     
     @IBOutlet weak var plusBtn: UIButton!
     @IBOutlet weak var minusBtn: UIButton!
-    @IBOutlet weak var multiplyBtn: UIButton!
     
-    var firstMatrixArray : [Double] = []
-    var secondMatrixArray : [Double] = []
-    var resultArray : [Double] = []
-    var matrixModel : Matrix?
+    let x = 3, y = 3;
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.plusBtn.addTarget(self, action:"handleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         self.minusBtn.addTarget(self, action:"handleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.multiplyBtn.addTarget(self, action:"handleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+
+        // TODO: Delete after tests
+        for textView in self.view.subviews as [UIView]{
+            textView.alpha = 0.0;
+        }
         
         startAnimation()
     }
@@ -38,69 +37,120 @@ class ViewController: UIViewController {
 
     }
     
-    func startAnimation() {
-        
+    func startAnimation(){
+        startMatrixAnimation(self.firstMatrix.count-1, matrixView: self.firstMatrix)
+        startMatrixAnimation(self.secondMatrix.count-1, matrixView: self.secondMatrix)
+    }
+    
+    func startMatrixAnimation(n:Int, matrixView : [UITextView]) {
+        let origin : CGPoint = matrixView[n].frame.origin
+        matrixView[n].frame.origin = CGPoint(x: origin.x - 100, y: origin.y - 100)
         
         UIView.animateWithDuration(0.2, animations: {
+    
+            matrixView[n].alpha = 1.0
+            matrixView[n].frame.origin = origin
             
-        }, completion: {
-        
-            
+        }, completion: { finished in
+
+            if(n>0){
+                self.startMatrixAnimation(n-1, matrixView: matrixView)
+            }else{
+                self.startButtonsAnimation(self.plusBtn)
+                self.startButtonsAnimation(self.minusBtn)
+            }
             
         })
     }
     
-    func handleButtonAction(sender:UIButton!) {
-        parseMatrix()
+    func startButtonsAnimation(button : UIButton){
         
+        button.transform = CGAffineTransformMakeScale(0.4, 0.4)
+        
+        UIView.animateWithDuration(0.2, animations: {
+            
+            button.alpha = 1.0
+            button.transform = CGAffineTransformMakeScale(1.4, 1.4)
+            
+            }, completion: { finished in
+                
+                UIView.animateWithDuration(0.2, animations: {
+                    
+                    button.transform = CGAffineTransformMakeScale(0.6, 0.6)
+                    
+                    }, completion: { finished in
+                        
+                        UIView.animateWithDuration(0.3, animations: {
+                            
+                            button.transform = CGAffineTransformMakeScale(1.2, 1.2)
+                            
+                            }, completion: { finished in
+                                
+                                UIView.animateWithDuration(0.3, animations: {
+                                    
+                                    button.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                                    
+                                    }, completion: { finished in
+                                    
+                                        
+                                })
+                                
+                        })
+                        
+                })
+                
+        })
+        
+    }
+    
+    func handleButtonAction(sender:UIButton!) {
         if sender == self.plusBtn {
             sum()
         }else if sender == self.minusBtn{
             subtract()
-        }else if sender == self.multiplyBtn{
-            multiply()
         }
     }
     
-    func parseMatrix(){
+    func parseMatrix(textViewArray:[UITextView]) -> [Double]{
         var index  = 0;
-        self.firstMatrixArray = []
-        self.secondMatrixArray = []
+        var values : [Double] = []
         
-        for textView in self.firstMatrix as [UITextView] {
+        for textView in textViewArray as [UITextView] {
             var tempString = (textView.text as NSString).doubleValue
-            self.firstMatrixArray.append(tempString)
+            values.append(tempString)
             index += 1
         }
         
-        for textView in self.secondMatrix as [UITextView] {
-            var tempString = (textView.text as NSString).doubleValue
-            self.secondMatrixArray.append(tempString)
-            index += 1
-        }
-        
-        println("Our first matrix is: \(self.firstMatrixArray) \nOur second matrix is: \(self.secondMatrixArray)")
+        return values
     }
 
     func sum() {
-        matrixModel = Matrix(tempFirstMatrix: firstMatrixArray, tempSecondMatrix: secondMatrixArray)
-        var result = matrixModel?.sumMatrix()
+        let firstMatrix = Matrix(cols: x, rows: y, values: parseMatrix(self.secondMatrix))
+        let secondMatrix = Matrix(cols: x, rows: y, values: parseMatrix(self.secondMatrix))
+        let result : Matrix = firstMatrix.add(secondMatrix)
         
-        println("Sum of our matrixies is equal to: \(result)")
+        showResult(result)
     }
 
     func subtract() {
-        matrixModel = Matrix(tempFirstMatrix: firstMatrixArray, tempSecondMatrix: secondMatrixArray)
-        var result = matrixModel?.subtractMatix()
+        let firstMatrix = Matrix(cols: x, rows: y, values: parseMatrix(self.secondMatrix))
+        let secondMatrix = Matrix(cols: x, rows: y, values: parseMatrix(self.secondMatrix))
+        let result : Matrix = firstMatrix.subtract(secondMatrix)
         
-        println("Subtract of our matrixies is equal to: \(result)")
+        showResult(result)
     }
     
-    func multiply(){
-        matrixModel = Matrix(tempFirstMatrix: firstMatrixArray, tempSecondMatrix: secondMatrixArray)
-        var result = matrixModel?.multiplyMatix()
-        
-        println("Multiply our matrixies is equal to: \(result)")
+    func showResult(result:Matrix){
+        let resultVC : ResultController = ResultController()
+        resultVC.matrix = result
+        resultVC.showResult()
     }
 }
+
+/*
+let firstMatrix = Matrix(cols: 1,rows: 3,values: [0.5, 5, 5]);
+let secondMatrix = Matrix(cols:1, rows: 3, values: [1,2,3.0]);
+let result = firstMatrix.add(secondMatrix);
+*/
+
 

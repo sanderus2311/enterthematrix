@@ -14,6 +14,7 @@
 		4B592D211A17802C0008F1A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B592D1F1A17802C0008F1A9 /* LaunchScreen.xib */; };
 		4B592D2D1A17802C0008F1A9 /* enterthematrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B592D2C1A17802C0008F1A9 /* enterthematrixTests.swift */; };
 		4B592D371A1782910008F1A9 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B592D361A1782910008F1A9 /* Matrix.swift */; };
+		4B592D3E1A18B9D80008F1A9 /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B592D3D1A18B9D80008F1A9 /* ResultController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		4B592D2B1A17802C0008F1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B592D2C1A17802C0008F1A9 /* enterthematrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterthematrixTests.swift; sourceTree = "<group>"; };
 		4B592D361A1782910008F1A9 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		4B592D3D1A18B9D80008F1A9 /* ResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				4B592D181A17802C0008F1A9 /* ViewController.swift */,
+				4B592D3D1A18B9D80008F1A9 /* ResultController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B592D3E1A18B9D80008F1A9 /* ResultController.swift in Sources */,
 				4B592D191A17802C0008F1A9 /* ViewController.swift in Sources */,
 				4B592D171A17802C0008F1A9 /* AppDelegate.swift in Sources */,
 				4B592D371A1782910008F1A9 /* Matrix.swift in Sources */,
